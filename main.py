@@ -1,4 +1,6 @@
 import random
+from JsonIO import JsonIO
+
 
 class stockMarket:
     def __init__(self):
@@ -14,11 +16,21 @@ class stockMarket:
             askingPrice: float
             sharesGoDownRate: float
             previousEventRating: int
+            previousBuyPrice: float
             }
         }
         
         '''
-        self.stocks = {}
+        self.stocks = {'aaaa':{
+            'sharePrice': 1,
+            'marketCap': 1,
+            'maxShares': 1,
+            'outstandingShares': 1,
+            'askingPrice': 1,
+            'sharesGoDownRate': 0.1,
+            'previousEventRating': 5,
+            'previousBuyPrice': 1
+        }}
         self.averageGrowth = 1.102 # Gains 10.2% every year according to bing
         self.inflation = 0
         self.time = 0

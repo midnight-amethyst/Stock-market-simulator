@@ -19,4 +19,4 @@ class jsonReadWrite:
         with open(self.fileName, 'w') as f:
             json.dump(self.dataToWrite, f, indent=4)
 
-JsonIO = jsonReadWrite("points.json")
+JsonIO = jsonReadWrite("stocks.json")
