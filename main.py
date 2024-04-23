@@ -83,7 +83,7 @@ class createBusiness():
 # Class for all ui stuff
 class ui:
     def __init__(self):
-        self.infoUI = 'Time: 0'
+        self.infoUI = 'Time: 0\nInflation: 1%\n'
         self.ui = '''[0] Tick time
 [1] Tick time custom
 [2] Buy shares
@@ -108,8 +108,15 @@ class ui:
 
     def default(self):
         self.ui = self.default
+    def updateInfoUI(self):
+        self.infoUI = f'{self.time}\n{self.inflation}\n'
     def tickTime(self, time):
-        self.infoUI = f'Time: {time}'
+        self.time = f'Time: {time}'
+        self.updateInfoUI()
+    def updateInflation(self, inflation):
+        self.inflation = f'Inflation: {inflation * 100}%'
+        self.updateInfoUI()
+    
 
 
 
