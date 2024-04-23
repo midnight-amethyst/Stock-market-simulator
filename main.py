@@ -80,9 +80,10 @@ class createBusiness():
 
 
 
-
+# Class for all ui stuff
 class ui:
     def __init__(self):
+        self.infoUI = 'Time: 0'
         self.ui = '''[0] Tick time
 [1] Tick time custom
 [2] Buy shares
@@ -107,8 +108,8 @@ class ui:
 
     def default(self):
         self.ui = self.default
-    def tickTime(self):
-        self.ui = ''
+    def tickTime(self, time):
+        self.infoUI = f'Time: {time}'
 
 
 
@@ -116,13 +117,16 @@ market = stockMarket()
 UI = ui()
 while True:
     clear()
+    print(UI.infoUI)
     print(UI.ui)
     value = input()
     if UI.ui == UI.defaultUI:
         if value == '0':
             market.tickTime()
+            UI.tickTime(market.time)
         elif value == '1':
             market.tickTime(int(input('How many ticks?\n')))
+            UI.tickTime(market.time)
         elif value == '2':
             pass
         elif value == '3':
@@ -136,4 +140,5 @@ while True:
         else:
             pass
     input()
+    
     
